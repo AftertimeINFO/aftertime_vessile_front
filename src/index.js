@@ -32,9 +32,14 @@ if (useJWTAuth) {
     dataProvider = drfProvider("http://" + process.env.REACT_APP_API_SERVER_FRONT + "/api/v2", fetchJsonWithAuthToken);
 }
 
+const initialState = {
+    admin: { ui: {sidebarOpen: false, viewVersion: 0}}
+}
+
 render(
     <Admin
         // authProvider={authProvider}
+        initialState={initialState}
         dataProvider={dataProvider}
         i18nProvider={i18nProvider}
         title="Example Admin"
@@ -54,11 +59,11 @@ render(
         ]}
     >
         {permissions => [
-            <Resource name="posts" {...posts} />,
+            // <Resource name="posts" {...posts} />,
             <Resource name="ships" {...ships} />,
-            <Resource name="comments" {...comments} />,
-            permissions ? <Resource name="users" {...users} /> : null,
-            <Resource name="tags" {...tags} />,
+            // <Resource name="comments" {...comments} />,
+            // permissions ? <Resource name="users" {...users} /> : null,
+            // <Resource name="tags" {...tags} />,
         ]}
     </Admin>,
     document.getElementById('root')

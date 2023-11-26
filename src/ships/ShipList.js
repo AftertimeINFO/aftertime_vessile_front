@@ -10,6 +10,7 @@ import {
     BulkDeleteButton,
     BulkExportButton,
     ChipField,
+    CardActions,
     Datagrid,
     DateField,
     downloadCSV,
@@ -126,14 +127,19 @@ const useStyles = makeStyles(theme => ({
 
 const position = [55.706415, 37.426097];
 
+const NoneActions = props => (
+    <CardActions />
+)
+
 const ShipList = props => {
     const classes = useStyles();
     const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
     return (
-        <Grid container>
-            <Grid item md={2}>
+        <Grid container spacing={1}>
+            <Grid item md={6}>
                  <List
                  {...props}
+                 actions={null}
                  // bulkActionButtons={<PostListBulkActions />}
                  // filters={<PostFilter />}
                  // sort={{ field: 'published_at', order: 'DESC' }}
@@ -183,7 +189,7 @@ const ShipList = props => {
              </List>
             </Grid>
 
-            <Grid item md={10}>
+            <Grid item md={6}>
                 <MapContainer 
                     style={{ height: "450px", width: "100%", flex: true }}
                     className="map-container"
