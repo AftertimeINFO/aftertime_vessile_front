@@ -20,14 +20,16 @@ import { parseBool } from "./helpers";
 let dataProvider;
 const useJWTAuth = parseBool(process.env.REACT_APP_USE_JWT_AUTH);
 
+console.log('Variable: ',process.env.REACT_APP_API_SERVER_FRONT)
+
 if (useJWTAuth) {
     console.log("Using rest_framework_simplejwt.authentication.JWTAuthentication");
     // authProvider = jwtTokenAuthProvider({obtainAuthTokenUrl: "/api/token/"});
-    dataProvider = drfProvider("http://front.api.aftertime/api/v2", fetchJsonWithAuthJWTToken);
+    dataProvider = drfProvider("http://" + process.env.REACT_APP_API_SERVER_FRONT + "/api/v2", fetchJsonWithAuthJWTToken);
 } else {
     console.log("Using rest_framework.authentication.TokenAuthentication");
     // authProvider = tokenAuthProvider();
-    dataProvider = drfProvider("http://front.api.aftertime/api/v2", fetchJsonWithAuthToken);
+    dataProvider = drfProvider("http://" + process.env.REACT_APP_API_SERVER_FRONT + "/api/v2", fetchJsonWithAuthToken);
 }
 
 render(

@@ -9,7 +9,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
-    "dotenv": "^16.3.1",
+    "env-cmd": "^10.1.0",
+    "leaflet": "^1.9.4",
     "prop-types": "^15.7.2",
     "ra-data-django-rest-framework": "^0.2.1",
     "ra-input-rich-text": "^3.0.0",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "react-scripts start",
+    "start": "env-cmd -f .env react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
