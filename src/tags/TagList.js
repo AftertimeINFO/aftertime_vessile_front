@@ -31,6 +31,7 @@ const SubTree = ({ level, root, getChildNodes, openChildren, toggleNode }) => {
         <Fragment>
             <ListItem
                 button={hasChildren}
+                bulkActionButtons={false}
                 onClick={() => hasChildren && toggleNode(root)}
                 style={{ paddingLeft: level * 16 }}
             >
